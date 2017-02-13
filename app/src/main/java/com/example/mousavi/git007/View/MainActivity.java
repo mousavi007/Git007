@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
         String url="";
         Github github=new Retrofit.Builder().baseUrl(url).addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
-                .build().create(Github.class);;
+                .build().create(Github.class);
+        github.getUserInfo("mousavi007");
+
     }
 }
