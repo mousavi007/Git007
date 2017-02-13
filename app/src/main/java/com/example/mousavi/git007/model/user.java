@@ -8,7 +8,6 @@ import io.realm.RealmResults;
 import io.realm.annotations.Index;
 import io.realm.annotations.PrimaryKey;
 public class user extends RealmObject {
-
     private String login;
     @PrimaryKey
     private Integer id;
