@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         user.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(x->{
-                    t1.setText(x.getEmail().toString());
+                    t1.setText(x.getLogin().toString());
                     t2.setText(x.getFollowing().toString());
                 });
 
