@@ -73,7 +73,7 @@ public class User {
     private String location;
     @SerializedName("email")
     @Expose
-    private Object email;
+    private String email;
     @SerializedName("hireable")
     @Expose
     private Object hireable;
@@ -267,11 +267,11 @@ public class User {
         this.location = location;
     }
 
-    public Object getEmail() {
+    public String getEmail() {
         return email;
     }
 
-    public void setEmail(Object email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
