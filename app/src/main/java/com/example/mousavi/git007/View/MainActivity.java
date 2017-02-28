@@ -13,8 +13,7 @@ import com.example.mousavi.git007.R;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
-import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -24,16 +23,17 @@ public class MainActivity extends AppCompatActivity {
         TextView t1=(TextView)findViewById(R.id.t1);
         TextView t2=(TextView)findViewById(R.id.t2);
         String url="https://api.github.com";
-        Github github=new Retrofit.Builder().baseUrl(url).addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+        Github github=new Retrofit.Builder().baseUrl(url).addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build().create(Github.class);
         Observable<User> user= github.getUserInfo("mousavi007");
-        user.subscribeOn(Schedulers.io())
+        user.subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(x->{
                     t1.setText(x.getLogin().toString());
                     t2.setText(x.getFollowing().toString());
                 });
+
 
     }
 }
