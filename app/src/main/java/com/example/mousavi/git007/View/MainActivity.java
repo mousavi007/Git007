@@ -19,19 +19,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        TextView t1=(TextView)findViewById(R.id.t1);
-        TextView t2=(TextView)findViewById(R.id.t2);
-        String url="https://api.github.com";
-        Github github=new Retrofit.Builder().baseUrl(url).addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create())
-                .build().create(Github.class);
-        Observable<User> user= github.getUserInfo("mousavi007");
-        user.subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(x->{
-                    t1.setText(x.getLogin().toString());
-                    t2.setText(x.getFollowing().toString());
-                });
+
 
 
     }
