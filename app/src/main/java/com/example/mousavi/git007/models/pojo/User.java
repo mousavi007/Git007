@@ -1,4 +1,4 @@
-package com.example.mousavi.git007.pojo;
+package com.example.mousavi.git007.models.pojo;
 
 /**
  * Created by mousavi on 2017/02/13.

@@ -7,11 +7,10 @@ import android.widget.TextView;
 import io.reactivex.Observable;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import com.example.mousavi.git007.ViewModel.Github;
-import com.example.mousavi.git007.pojo.User;
+import com.example.mousavi.git007.network.Github;
+import com.example.mousavi.git007.models.pojo.User;
 import com.example.mousavi.git007.R;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 public class MainActivity extends AppCompatActivity {

@@ -1,6 +1,6 @@
-package com.example.mousavi.git007.models;
+package com.example.mousavi.git007.managers;
 
-import com.example.mousavi.git007.ViewModel.Github;
+import com.example.mousavi.git007.network.Github;
 
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
