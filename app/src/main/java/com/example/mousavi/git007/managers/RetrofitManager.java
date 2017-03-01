@@ -5,12 +5,12 @@ import com.example.mousavi.git007.network.Github;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
+import com.example.mousavi.git007.network.LoginService;
 
 public class RetrofitManager {
-    private static final String BASE_URL = "http://api.themoviedb.org/3/";
-    public static final String IMAGE_URL = "http://image.tmdb.org/t/p/w500/";
+    private static final String BASE_URL = "https://api.github.com";
     private static RetrofitManager instance = null;
-    private  Github service;
+    private  LoginService service;
 
     /**
      * Constructor used to build MovieDB service.
@@ -22,7 +22,7 @@ public class RetrofitManager {
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
 
-        service = retrofit.create(Github.class);
+        service = retrofit.create(LoginService.class);
     }
 
     /**
@@ -40,7 +40,7 @@ public class RetrofitManager {
      * Getter for Movie DB service
      * @return service {@link Github}
      */
-    public Github getService() {
+    public LoginService getService() {
         return service;
     }
 }

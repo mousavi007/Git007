@@ -2,7 +2,7 @@ package com.example.mousavi.git007.network;
 
 import retrofit2.http.POST;
 import retrofit2.http.Query;
-import rx.Observable;
+import io.reactivex.Observable;
 
 import com.example.mousavi.git007.models.pojo.AuthEntity;
 import com.example.mousavi.git007.models.pojo.NetConstant;
