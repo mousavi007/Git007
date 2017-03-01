@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
         EditText e2=(EditText)findViewById(R.id.editText2);
         TextView t3=(TextView)findViewById(R.id.t3);
         Button b1=(Button)findViewById(R.id.button);
-        String user= String.valueOf(e1.getText());
-        String pass= String.valueOf(e2.getText());
+        String user= e1.getText().toString();
+        String pass= e2.getText().toString();
        b1.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
