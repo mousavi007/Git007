@@ -4,65 +4,22 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.mousavi.git007.View.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="user"
-        android:id="@+id/t1"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/t2" />
+    <WebView
+        android:layout_width="match_parent"
+        android:id="@+id/webview01"
+        android:layout_height="400dp" >
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_marginTop="15dp"
-        android:id="@+id/editText"
-        android:layout_below="@+id/t1"
-        android:layout_alignStart="@+id/editText2" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="password"
-        android:id="@+id/t2"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/editText"
-        android:layout_alignStart="@+id/button" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:layout_marginTop="31dp"
-        android:id="@+id/editText2"
-        android:layout_below="@+id/t2"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="58dp" />
-
-    <Button
-        android:text="Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/editText2"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/button" />
+    </WebView>
 
     <TextView
         android:text="TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/t3"
-        android:layout_below="@+id/button"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp" />
-
+        android:id="@+id/textView"
+        android:layout_below="@+id/webview01"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="15dp" />
 </RelativeLayout>
