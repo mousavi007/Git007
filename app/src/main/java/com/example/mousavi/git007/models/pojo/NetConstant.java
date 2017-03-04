@@ -10,7 +10,7 @@ public class NetConstant {
     public static final String ERROR_CODE_TOKEN_NOT_EXIST = "10101";
     public static final String ERROR_CODE_PARAMETER_LACK = "10001";
 
-    public static final String API_OAUTH2_ACCESS_TOKEN = "/oauth2/access_token?format=json";
+    public static final String API_OAUTH2_ACCESS_TOKEN = "/login/oauth/access_token";
 
     public static final String API_POST_MY = "/post/v2/my?format=json";
     public static final String MD_APP_KEY="5bf29364071543db722d";

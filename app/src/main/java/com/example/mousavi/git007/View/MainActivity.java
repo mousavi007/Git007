@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import io.reactivex.Observable;
+import io.reactivex.android.schedulers.*;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -44,19 +45,18 @@ public class MainActivity extends AppCompatActivity {
         WebView webview = (WebView)findViewById(R.id.webview01);
         webview.getSettings().setJavaScriptEnabled(true);
         final TextView t=(TextView)findViewById(R.id.textView);
-
+        final TokenStorer t1=new TokenStorer();
         webview.setWebViewClient(new WebViewClient() {
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
                 String accessTokenFragment = "access_token=";
                 String accessCodeFragment = "code=";
-                TokenStorer t1=new TokenStorer();
+
                 // We hijack the GET request to extract the OAuth parameters
 
                 if (url.contains(accessTokenFragment)) {
                     // the GET request contains directly the token
                     String accessToken = url.substring(url.indexOf(accessTokenFragment));
                     t1.setAccessToken(accessToken);
-                    t.setText(t1.getAccessToken());
 
                 } else if(url.contains(accessCodeFragment)) {
                     // the GET request contains an authorization code
@@ -64,9 +64,9 @@ public class MainActivity extends AppCompatActivity {
                     t1.setAccessCode(accessCode);
 
 
-                    String query = "client_id=" + CLIENT_ID + "&client_secret=" + CLIENT_SECRET + "&code=" + accessCode;
-                    view.postUrl(OAUTH_ACCESS_TOKEN_URL, query.getBytes());
-                    t.setText(t1.getAccessToken());
+                //    String query = "client_id=" + CLIENT_ID + "&client_secret=" + CLIENT_SECRET + "&code=" + accessCode;
+                //    view.postUrl(OAUTH_ACCESS_TOKEN_URL, query.getBytes());
+
                 }
 
             }
@@ -75,8 +75,14 @@ public class MainActivity extends AppCompatActivity {
 
         });
         webview.loadUrl(url);
+RetrofitManager r1;
+        r1=RetrofitManager.newInstance();
+        Observable<AuthEntity> observable=r1.getService().refreshToken(CLIENT_ID,CLIENT_SECRET,t1.getAccessCode());
+        observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(x->{
+                    t.setText(x.getAccess_token());});
 
-int y =90;
+        int y =90;
 
     }
 }

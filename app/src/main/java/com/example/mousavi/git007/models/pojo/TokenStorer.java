@@ -1,13 +1,20 @@
 package com.example.mousavi.git007.models.pojo;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by mousavi on 2017/03/04.
  */
 
 public class TokenStorer {
+    @SerializedName("access_token")
+    @Expose
+    private static String accessToken;
 
-    private String accessToken;
-    private String accessCode;
+    @SerializedName("accessCode")
+    @Expose
+    private static String accessCode;
 
     public String getAccessCode() {
         return accessCode;

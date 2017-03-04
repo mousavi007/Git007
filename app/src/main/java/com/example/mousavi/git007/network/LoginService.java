@@ -6,21 +6,20 @@ import io.reactivex.Observable;
 
 import com.example.mousavi.git007.models.pojo.AuthEntity;
 import com.example.mousavi.git007.models.pojo.NetConstant;
+import com.example.mousavi.git007.models.pojo.TokenStorer;
 
 public interface LoginService {
     /**
-     * @param app_key
-     * @param app_secret
-     * @param grant_type
-     * @param refresh_token
+     * @param client_id
+     * @param client_secret
+     * @param code
      */
 
     @POST(NetConstant.API_OAUTH2_ACCESS_TOKEN)
     Observable<AuthEntity> refreshToken(
-            @Query("app_key") String app_key,
-            @Query("app_secret") String app_secret,
-            @Query("grant_type") String grant_type,
-            @Query("refresh_token") String refresh_token);
+            @Query("client_id") String client_id,
+            @Query("client_secret") String client_secret,
+            @Query("code") String code);
 
     /**
      * @param username
