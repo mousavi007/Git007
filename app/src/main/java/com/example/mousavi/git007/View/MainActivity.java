@@ -1,5 +1,6 @@
 package com.example.mousavi.git007.View;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -45,10 +46,11 @@ public class MainActivity extends AppCompatActivity {
                     // the GET request contains an authorization code
                     String accessCode = url.substring(url.indexOf(accessCodeFragment)+5);
                     t1.setAccessCode(accessCode);
+                    Intent i=new Intent(MainActivity.this,Main2Activity.class);
+                    startActivity(i);
 
-
-                    String query = "client_id=" + CLIENT_ID + "&client_secret=" + CLIENT_SECRET + "&code=" + accessCode;
-                    view.postUrl(OAUTH_ACCESS_TOKEN_URL, query.getBytes());
+                   // String query = "client_id=" + CLIENT_ID + "&client_secret=" + CLIENT_SECRET + "&code=" + accessCode;
+                  //  view.postUrl(OAUTH_ACCESS_TOKEN_URL, query.getBytes());
 
                 }
 
