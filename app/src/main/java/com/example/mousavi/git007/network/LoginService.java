@@ -1,24 +1,23 @@
 package com.example.mousavi.git007.network;
 
-import retrofit2.http.POST;
-import retrofit2.http.Query;
-import io.reactivex.Observable;
-
 import com.example.mousavi.git007.models.pojo.AuthEntity;
 import com.example.mousavi.git007.models.pojo.NetConstant;
-import com.example.mousavi.git007.models.pojo.TokenStorer;
+
+import io.reactivex.Observable;
+import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface LoginService {
     /**
-     * @param client_id
-     * @param client_secret
+     * @param CLIENT_ID
+     * @param CLIENT_SECRET
      * @param code
      */
 
     @POST(NetConstant.API_OAUTH2_ACCESS_TOKEN)
     Observable<AuthEntity> refreshToken(
-            @Query("client_id") String client_id,
-            @Query("client_secret") String client_secret,
+            @Query("CLIENT_ID") String CLIENT_ID,
+            @Query("CLIENT_SECRET") String CLIENT_SECRET,
             @Query("code") String code);
 
     /**
