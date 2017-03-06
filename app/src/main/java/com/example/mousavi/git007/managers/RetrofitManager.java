@@ -10,7 +10,8 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitManager {
-    private static final String BASE_URL = "https://api.github.com";
+    private static final String BASE_URL1 = "https://api.github.com";
+    private static final String BASE_URL2 = "https://github.com";
     private static RetrofitManager instance = null;
     private  LoginService service;
 
@@ -24,7 +25,7 @@ public class RetrofitManager {
         OkHttpClient okHttpClient = new OkHttpClient.Builder().addInterceptor(httpLoggingInterceptor).build();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl(BASE_URL2)
                 .client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
