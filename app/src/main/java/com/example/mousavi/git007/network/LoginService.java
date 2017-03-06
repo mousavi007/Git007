@@ -1,9 +1,12 @@
 package com.example.mousavi.git007.network;
 
+import com.example.mousavi.git007.models.pojo.AccessToken;
 import com.example.mousavi.git007.models.pojo.AuthEntity;
 import com.example.mousavi.git007.models.pojo.NetConstant;
+import com.example.mousavi.git007.models.pojo.TokenStorer;
 
 import io.reactivex.Observable;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
@@ -13,9 +16,9 @@ public interface LoginService {
      * @param CLIENT_SECRET
      * @param code
      */
-
+    @Headers("Accept: application/json")
     @POST(NetConstant.API_OAUTH2_ACCESS_TOKEN)
-    Observable<AuthEntity> refreshToken(
+    Observable<AccessToken> refreshToken(
             @Query("CLIENT_ID") String CLIENT_ID,
             @Query("CLIENT_SECRET") String CLIENT_SECRET,
             @Query("code") String code);
@@ -23,7 +26,7 @@ public interface LoginService {
     /**
      * @param username
      * @param password
-     */
+
     @POST(NetConstant.API_OAUTH2_ACCESS_TOKEN)
     Observable<AuthEntity> login(
             @Query("app_key") String app_key,
@@ -36,4 +39,5 @@ public interface LoginService {
         public static final String PASSWORD = "password";
         public static final String REFRESH_TOKEN = "refresh_token";
     }
+     */
 }

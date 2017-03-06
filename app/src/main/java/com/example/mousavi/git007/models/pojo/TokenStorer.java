@@ -16,7 +16,7 @@ public class TokenStorer {
     @Expose
     private static String accessCode;
 
-    public String getAccessCode() {
+    public static String getAccessCode() {
         return accessCode;
     }
 
@@ -24,7 +24,7 @@ public class TokenStorer {
         this.accessCode = accessCode;
     }
 
-    public String getAccessToken() {
+    public static String getAccessToken() {
         return accessToken;
     }
 

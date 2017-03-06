@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 import com.example.mousavi.git007.R;
 import com.example.mousavi.git007.managers.RetrofitManager;
+import com.example.mousavi.git007.models.pojo.AccessToken;
 import com.example.mousavi.git007.models.pojo.AuthEntity;
 import com.example.mousavi.git007.models.pojo.TokenStorer;
 
@@ -26,9 +27,11 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        String s=t1.getAccessCode();
         TextView t=(TextView)findViewById(R.id.textView2);
-        Observable<AuthEntity> observable= RetrofitManager.newInstance().getService().refreshToken(CLIENT_ID,CLIENT_SECRET,t1.getAccessCode());
+        Observable<AccessToken> observable= RetrofitManager.newInstance().getService().refreshToken(CLIENT_ID,CLIENT_SECRET,s);
         observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-                .subscribe(x->{t.setText(x.getAccess_token());});
+                .subscribe(x->{t.setText(x.getAccessToken());});
+
     }
 }
