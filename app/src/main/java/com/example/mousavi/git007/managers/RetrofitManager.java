@@ -10,7 +10,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitManager {
-    private static final String BASE_URL = "https://api.github.com";
+    private static final String BASE_URL = "https://github.com";
     private static RetrofitManager instance = null;
     private  LoginService service;
 

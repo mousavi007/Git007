@@ -61,25 +61,25 @@ public class User {
     private Boolean siteAdmin;
     @SerializedName("name")
     @Expose
-    private String name;
+    private Object name;
     @SerializedName("company")
     @Expose
-    private String company;
+    private Object company;
     @SerializedName("blog")
     @Expose
-    private String blog;
+    private Object blog;
     @SerializedName("location")
     @Expose
-    private String location;
+    private Object location;
     @SerializedName("email")
     @Expose
-    private String email;
+    private Object email;
     @SerializedName("hireable")
     @Expose
     private Object hireable;
     @SerializedName("bio")
     @Expose
-    private String bio;
+    private Object bio;
     @SerializedName("public_repos")
     @Expose
     private Integer publicRepos;
@@ -98,6 +98,27 @@ public class User {
     @SerializedName("updated_at")
     @Expose
     private String updatedAt;
+    @SerializedName("private_gists")
+    @Expose
+    private Integer privateGists;
+    @SerializedName("total_private_repos")
+    @Expose
+    private Integer totalPrivateRepos;
+    @SerializedName("owned_private_repos")
+    @Expose
+    private Integer ownedPrivateRepos;
+    @SerializedName("disk_usage")
+    @Expose
+    private Integer diskUsage;
+    @SerializedName("collaborators")
+    @Expose
+    private Integer collaborators;
+    @SerializedName("two_factor_authentication")
+    @Expose
+    private Boolean twoFactorAuthentication;
+    @SerializedName("plan")
+    @Expose
+    private Plan plan;
 
     public String getLogin() {
         return login;
@@ -235,43 +256,43 @@ public class User {
         this.siteAdmin = siteAdmin;
     }
 
-    public String getName() {
+    public Object getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(Object name) {
         this.name = name;
     }
 
-    public String getCompany() {
+    public Object getCompany() {
         return company;
     }
 
-    public void setCompany(String company) {
+    public void setCompany(Object company) {
         this.company = company;
     }
 
-    public String getBlog() {
+    public Object getBlog() {
         return blog;
     }
 
-    public void setBlog(String blog) {
+    public void setBlog(Object blog) {
         this.blog = blog;
     }
 
-    public String getLocation() {
+    public Object getLocation() {
         return location;
     }
 
-    public void setLocation(String location) {
+    public void setLocation(Object location) {
         this.location = location;
     }
 
-    public String getEmail() {
+    public Object getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(Object email) {
         this.email = email;
     }
 
@@ -283,11 +304,11 @@ public class User {
         this.hireable = hireable;
     }
 
-    public String getBio() {
+    public Object getBio() {
         return bio;
     }
 
-    public void setBio(String bio) {
+    public void setBio(Object bio) {
         this.bio = bio;
     }
 
@@ -337,6 +358,62 @@ public class User {
 
     public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public Integer getPrivateGists() {
+        return privateGists;
+    }
+
+    public void setPrivateGists(Integer privateGists) {
+        this.privateGists = privateGists;
+    }
+
+    public Integer getTotalPrivateRepos() {
+        return totalPrivateRepos;
+    }
+
+    public void setTotalPrivateRepos(Integer totalPrivateRepos) {
+        this.totalPrivateRepos = totalPrivateRepos;
+    }
+
+    public Integer getOwnedPrivateRepos() {
+        return ownedPrivateRepos;
+    }
+
+    public void setOwnedPrivateRepos(Integer ownedPrivateRepos) {
+        this.ownedPrivateRepos = ownedPrivateRepos;
+    }
+
+    public Integer getDiskUsage() {
+        return diskUsage;
+    }
+
+    public void setDiskUsage(Integer diskUsage) {
+        this.diskUsage = diskUsage;
+    }
+
+    public Integer getCollaborators() {
+        return collaborators;
+    }
+
+    public void setCollaborators(Integer collaborators) {
+        this.collaborators = collaborators;
+    }
+
+    public Boolean getTwoFactorAuthentication() {
+        return twoFactorAuthentication;
+    }
+
+    public void setTwoFactorAuthentication(Boolean twoFactorAuthentication) {
+        this.twoFactorAuthentication = twoFactorAuthentication;
+    }
+
+    public Plan getPlan() {
+        return plan;
+    }
+
+    public void setPlan(Plan plan) {
+        this.plan = plan;
     }
 
 }

@@ -1,5 +1,6 @@
 package com.example.mousavi.git007.View;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
@@ -7,7 +8,6 @@ import android.widget.TextView;
 import com.example.mousavi.git007.R;
 import com.example.mousavi.git007.managers.RetrofitManager;
 import com.example.mousavi.git007.models.pojo.AccessToken;
-import com.example.mousavi.git007.models.pojo.AuthEntity;
 import com.example.mousavi.git007.models.pojo.TokenStorer;
 
 import io.reactivex.Observable;
@@ -31,7 +31,8 @@ public class Main2Activity extends AppCompatActivity {
         TextView t=(TextView)findViewById(R.id.textView2);
         Observable<AccessToken> observable= RetrofitManager.newInstance().getService().refreshToken(CLIENT_ID,CLIENT_SECRET,s);
         observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-                .subscribe(x->{t.setText(x.getAccessToken());});
+                .subscribe(x->{t.setText(x.getAccessToken());
+                Intent intent=new Intent(Main2Activity.this,Main3Activity.class);});
 
     }
 }
